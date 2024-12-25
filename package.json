@@ -1,8 +1,8 @@
 {
-  "name": "@intentjs/new-app-starter",
+  "name": "blogify-intent-backend",
   "version": "0.0.3",
-  "description": "A starter template for intent application",
-  "author": "Vinayak Sarawagi <vinayaksarawagi25@gmail.com>",
+  "description": "Blog demo built using Intent",
+  "author": "Chetan Bohra <chetanbohra26@gmail.com>",
   "private": false,
   "license": "MIT",
   "repository": {
