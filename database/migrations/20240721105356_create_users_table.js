@@ -5,12 +5,11 @@
 exports.up = async function (knex) {
   return knex.schema.createTable('users', function (table) {
     table.string('id').primary();
-    table.string('first_name');
-    table.string('last_name');
+    table.string('firstName');
+    table.string('lastName');
     table.string('email').notNullable().index();
     table.string('password').notNullable();
-    table.timestamp('email_verified_at').nullable();
-    table.timestamp('password_changed_at').nullable();
+    table.smallint('status').defaultTo(1).comment('1=> active, 2=>inactive');
     table.timestamp('created_at').defaultTo(knex.fn.now());
     table.timestamp('updated_at').defaultTo(knex.fn.now());
   });
