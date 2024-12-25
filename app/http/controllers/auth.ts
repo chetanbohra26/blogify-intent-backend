@@ -1,7 +1,6 @@
 import {
   Body,
   Controller,
-  Get,
   Post,
   Transformable,
   Validate,
@@ -11,8 +10,6 @@ import { UserTransformer } from 'app/transformers/user';
 import {
   LoginDto,
   RegisterDto,
-  RequestPasswordChangeOtpDto,
-  VerifyEmailDto,
 } from 'app/validators/auth';
 
 @Controller('auth')
@@ -34,20 +31,5 @@ export class AuthController extends Transformable {
   async login(@Body() dto: LoginDto) {
     const user = await this.auth.login(dto);
     return this.item(user, new UserTransformer());
-  }
-
-  @Get('verify-email')
-  async verifyEmail(@Body() dto: VerifyEmailDto) {
-    await this.auth.verifyEmail(dto);
-  }
-
-  @Post('forgot-password')
-  @Validate(RequestPasswordChangeOtpDto)
-  async forgotPassword(@Body() dto: RequestPasswordChangeOtpDto) {
-    await this.auth.requestPasswordChangeOtp(dto);
-    return {
-      success: true,
-      message: 'OTP sent to registered email!',
-    };
   }
 }
