@@ -6,7 +6,6 @@ import {
   MiddlewareConfigurator,
   Type,
 } from '@intentjs/core';
-import { UserController } from './controllers/app';
 import { AuthController } from './controllers/auth';
 import { Server } from '@intentjs/hyper-express';
 
@@ -16,7 +15,7 @@ export class HttpKernel extends Kernel {
    * Read more - https://tryintent.com/docs/controllers
    */
   public controllers(): Type<any>[] {
-    return [UserController, AuthController];
+    return [AuthController];
   }
 
   /**
@@ -55,5 +54,5 @@ export class HttpKernel extends Kernel {
   /**
    * @param app
    */
-  public async boot(app: Server): Promise<void> {}
+  public async boot(app: Server): Promise<void> { }
 }
