@@ -21,14 +21,13 @@ export class UserModel extends BaseModel {
    * Columns
    */
   id?: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  createdAt: Date;
-  updatedAt: Date;
-  emailVerifiedAt: Date;
-  passwordChangedAt: Date;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  password?: string;
+  status?: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 
   /**
    * Computed Properties
