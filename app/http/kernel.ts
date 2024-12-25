@@ -6,8 +6,8 @@ import {
   MiddlewareConfigurator,
   Type,
 } from '@intentjs/core';
-import { AuthController } from './controllers/auth';
 import { Server } from '@intentjs/hyper-express';
+import { AuthController } from './controllers';
 
 export class HttpKernel extends Kernel {
   /**

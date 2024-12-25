@@ -5,12 +5,9 @@ import {
   Unauthorized,
   ValidationFailed,
 } from '@intentjs/core';
-import { UserModel } from 'app/models/userModel';
-import { UserDbRepository } from 'app/repositories/userDbRepository';
-import {
-  LoginDto,
-  RegisterDto,
-} from 'app/validators/auth';
+import { UserModel } from 'app/models/user';
+import { UserDbRepository } from 'app/repositories';
+import { LoginDto, RegisterDto } from 'app/validators';
 import { compareSync, hashSync } from 'bcrypt';
 import { JwtPayload, sign, verify } from 'jsonwebtoken';
 import { ulid } from 'ulid';

@@ -1,7 +1,6 @@
 import { IntentApplicationContext, ServiceProvider } from '@intentjs/core';
-import { UserDbRepository } from 'app/repositories/userDbRepository';
-import { UserService } from 'app/services';
-import { AuthService } from 'app/services/auth';
+import { UserDbRepository } from 'app/repositories';
+import { AuthService } from 'app/services';
 
 export class AppServiceProvider extends ServiceProvider {
   /**
@@ -13,7 +12,6 @@ export class AppServiceProvider extends ServiceProvider {
      *
      * Read more - https://tryintent.com/docs/providers
      */
-    this.bind(UserService);
 
     this.bind(AuthService);
     /**
@@ -27,5 +25,5 @@ export class AppServiceProvider extends ServiceProvider {
   /**
    * Bootstrap any application service here.
    */
-  boot(app: IntentApplicationContext) {}
+  boot(app: IntentApplicationContext) { }
 }

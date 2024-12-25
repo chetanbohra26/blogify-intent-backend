@@ -1,5 +1,5 @@
 import { DatabaseRepository, Injectable, InjectModel } from '@intentjs/core';
-import { UserModel } from '../models/userModel';
+import { UserModel } from 'app/models';
 
 @Injectable()
 export class UserDbRepository extends DatabaseRepository<UserModel> {

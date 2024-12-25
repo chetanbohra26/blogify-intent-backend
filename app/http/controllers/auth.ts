@@ -5,12 +5,10 @@ import {
   Transformable,
   Validate,
 } from '@intentjs/core';
-import { AuthService } from 'app/services/auth';
-import { UserTransformer } from 'app/transformers/user';
-import {
-  LoginDto,
-  RegisterDto,
-} from 'app/validators/auth';
+import { AuthService } from 'app/services';
+import { UserTransformer } from 'app/transformers';
+import { LoginDto, RegisterDto } from 'app/validators';
+
 
 @Controller('auth')
 export class AuthController extends Transformable {
