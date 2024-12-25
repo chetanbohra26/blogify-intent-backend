@@ -5,7 +5,7 @@ import {
   Unauthorized,
   ValidationFailed,
 } from '@intentjs/core';
-import { UserModel } from 'app/models/user';
+import { UserModel } from 'app/models';
 import { UserDbRepository } from 'app/repositories';
 import { LoginDto, RegisterDto } from 'app/validators';
 import { compareSync, hashSync } from 'bcrypt';
