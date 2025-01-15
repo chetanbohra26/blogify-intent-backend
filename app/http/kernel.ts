@@ -7,7 +7,7 @@ import {
   Type,
 } from '@intentjs/core';
 import { Server } from '@intentjs/hyper-express';
-import { AuthController } from './controllers';
+import { AuthController, UserController } from './controllers';
 
 export class HttpKernel extends Kernel {
   /**
@@ -15,7 +15,10 @@ export class HttpKernel extends Kernel {
    * Read more - https://tryintent.com/docs/controllers
    */
   public controllers(): Type<any>[] {
-    return [AuthController];
+    return [
+      AuthController,
+      UserController,
+    ];
   }
 
   /**

@@ -8,6 +8,7 @@ import database from './db';
 import cache from './cache';
 import queue from './queue';
 import http from './http';
+import settings from './settings';
 
 export default [
   app,
@@ -20,4 +21,5 @@ export default [
   queue,
   storage,
   http,
+  settings,
 ];

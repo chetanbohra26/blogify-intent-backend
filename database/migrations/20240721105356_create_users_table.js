@@ -9,7 +9,7 @@ exports.up = async function (knex) {
     table.string('lastName');
     table.string('email').notNullable().index();
     table.string('password').notNullable();
-    table.smallint('status').defaultTo(1).comment('1=> active, 2=>inactive');
+    table.smallint('status').defaultTo(1).comment('1=> active, 2=> inactive');
     table.timestamp('created_at').defaultTo(knex.fn.now());
     table.timestamp('updated_at').defaultTo(knex.fn.now());
   });
