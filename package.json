@@ -22,7 +22,7 @@
     "@aws-sdk/client-sqs": "^3.716.0",
     "@aws-sdk/credential-providers": "^3.716.0",
     "@aws-sdk/s3-request-presigner": "^3.717.0",
-    "@intentjs/core": "^0.1.36",
+    "@intentjs/core": "^0.1.41",
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",

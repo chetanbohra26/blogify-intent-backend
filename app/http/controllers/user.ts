@@ -1,26 +1,33 @@
 import {
   Controller,
+  Dto,
   Get,
   Req,
   Request,
   Transformable,
   UseGuards,
+  Validate,
 } from '@intentjs/core';
 import { UserTransformer } from 'app/transformers';
 import { JwtGuard } from '../guards';
-import { UserModel } from 'app/models';
+import { UserService } from 'app/services';
+import { GetProfileDto } from 'app/validators';
 
 @Controller('users')
 export class UserController extends Transformable {
-  constructor() {
+  constructor(
+    private readonly usersService: UserService,
+  ) {
     super();
   }
 
-  @Get('profile')
   @UseGuards(JwtGuard)
-  async getProfile(@Req() req: Request) {
-    console.log(req.all())
-    const user: UserModel = req.$user;
+  @Validate(GetProfileDto)
+  @Get('profile')
+  async getProfile(@Req() req: Request, @Dto() dto: GetProfileDto) {
+    dto.user = req.$user;
+
+    const user = await this.usersService.getProfile(dto);
     return this.item(user, new UserTransformer());
   }
 }
