@@ -7,7 +7,7 @@ import {
   Type,
 } from '@intentjs/core';
 import { Server } from '@intentjs/hyper-express';
-import { AuthController, UserController } from './controllers';
+import { AuthController, BlogController, UserController } from './controllers';
 
 export class HttpKernel extends Kernel {
   /**
@@ -18,6 +18,7 @@ export class HttpKernel extends Kernel {
     return [
       AuthController,
       UserController,
+      BlogController,
     ];
   }
 

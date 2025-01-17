@@ -1,11 +1,17 @@
 import {
   Controller,
+  Post,
   Transformable,
 } from '@intentjs/core';
 
 @Controller('blogs')
 export class BlogController extends Transformable {
-  constructor() {
-    super();
+
+  @Post()
+  async createBlog() {
+    return {
+      success: true,
+      message: 'Blog created',
+    }
   }
 }
