@@ -1,6 +1,7 @@
 import { IntentApplicationContext, ServiceProvider } from '@intentjs/core';
-import { UserDbRepository } from 'app/repositories';
+import { BlogDbRepository, UserDbRepository } from 'app/repositories';
 import { AuthService, UserService } from 'app/services';
+import { BlogService } from 'app/services/blog';
 
 export class AppServiceProvider extends ServiceProvider {
   /**
@@ -15,12 +16,14 @@ export class AppServiceProvider extends ServiceProvider {
 
     this.bind(AuthService);
     this.bind(UserService);
+    this.bind(BlogService);
     /**
      * Binding the UserDbRepository with a non-class based token 'USER_DB_REPO'.
      *
      * Read more - https://tryintent.com/docs/providers#class-based-providers
      */
     this.bindWithClass('USER_DB_REPO', UserDbRepository);
+    this.bindWithClass('BLOG_DB_REPO', BlogDbRepository);
   }
 
   /**
