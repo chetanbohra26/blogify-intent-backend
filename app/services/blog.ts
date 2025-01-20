@@ -22,4 +22,8 @@ export class BlogService {
     })
     return created;
   }
+
+  async getBlogs() {
+    return this.blogs.all();
+  }
 }

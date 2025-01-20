@@ -1,6 +1,7 @@
 import {
   Controller,
   Dto,
+  Get,
   Post,
   Req,
   Request,
@@ -29,5 +30,19 @@ export class BlogController extends Transformable {
 
     const blog = await this.blogService.createBlog(dto);
     return this.item(blog, new BlogTransformer());
+  }
+
+  @Get()
+  async getBlogs() {
+    const data = await this.blogService.getBlogs();
+
+    // running transformer parallely
+    const blogTransformer = new BlogTransformer();
+    const transformed = await Promise.all(
+      data.map(blog => blogTransformer.transform(blog))
+    );
+
+    return transformed;
+    // return this.collection(data, new BlogTransformer());
   }
 }
