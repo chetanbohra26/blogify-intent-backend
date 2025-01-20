@@ -26,9 +26,6 @@ export class CommonController extends Transformable {
   ) {
     const data = await this.commonService.getUploadUrls(dto);
 
-    return {
-      success: true,
-      data
-    }
+    return data;
   }
 }
