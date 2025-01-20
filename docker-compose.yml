@@ -2,8 +2,13 @@ services:
   db:
     image: postgres
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       POSTGRES_PASSWORD: pass123
       POSTGRES_USER: postgres
       POSTGRES_DB: intent_app
+  cache:
+    image: redis
+    restart: always
+    ports:
+      - '6379:6379'
