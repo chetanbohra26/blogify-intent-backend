@@ -5,12 +5,14 @@ import {
   Post,
   Req,
   Request,
+  Res,
+  Response,
   Transformable,
   UseGuards,
   Validate,
 } from '@intentjs/core';
 import { JwtGuard } from '../guards';
-import { CreateBlogDto } from 'app/validators';
+import { CreateBlogDto, PaginationDto } from 'app/validators';
 import { BlogService } from 'app/services/blog';
 import { BlogTransformer } from 'app/transformers';
 
@@ -32,17 +34,14 @@ export class BlogController extends Transformable {
     return this.item(blog, new BlogTransformer());
   }
 
+  @Validate(PaginationDto)
   @Get()
-  async getBlogs() {
-    const data = await this.blogService.getBlogs();
+  async getBlogs(
+    @Dto() dto: PaginationDto,
+    @Res() res: Response,
+  ) {
+    const data = await this.blogService.getBlogs(dto);
 
-    // running transformer parallely
-    const blogTransformer = new BlogTransformer();
-    const transformed = await Promise.all(
-      data.map(blog => blogTransformer.transform(blog))
-    );
-
-    return transformed;
-    // return this.collection(data, new BlogTransformer());
+    return this.paginate(data, new BlogTransformer());
   }
 }

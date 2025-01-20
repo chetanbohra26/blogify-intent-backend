@@ -4,7 +4,7 @@ import {
 } from '@intentjs/core';
 import { BlogModel } from 'app/models';
 import { BlogDbRepository } from 'app/repositories';
-import { CreateBlogDto } from 'app/validators';
+import { CreateBlogDto, PaginationDto } from 'app/validators';
 import { ulid } from 'ulid';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class BlogService {
     return created;
   }
 
-  async getBlogs() {
-    return this.blogs.all();
+  async getBlogs(inputs: PaginationDto) {
+    return this.blogs.search(inputs);
   }
 }
