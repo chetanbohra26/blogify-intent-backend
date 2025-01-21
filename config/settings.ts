@@ -1,6 +1,7 @@
 import { configNamespace } from '@intentjs/core';
 
 export default configNamespace('settings', () => ({
+  frontendUrl: process.env.FRONTEND_URL,
   user: {
     status: {
       ACTIVE: 1,

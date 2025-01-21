@@ -12,3 +12,11 @@ services:
     restart: always
     ports:
       - '6379:6379'
+  maildev:
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+    environment:
+      - MAILDEV_INCOMING_USER=admin@blogify.com
+      - MAILDEV_INCOMING_PASS=admin@123

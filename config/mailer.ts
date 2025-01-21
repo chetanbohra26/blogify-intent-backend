@@ -22,19 +22,16 @@ export default configNamespace(
       logger: {
         provider: 'logger',
       },
-
-      /**
-       * smtp: {
-       *   provider: 'smtp',
-       *   host: process.env.MAIL_HOST,
-       *   port: process.env.MAIL_PORT,
-       *   username: process.env.MAIL_USER,
-       *   password: process.env.MAIL_PASSWORD,
-       *   ignoreTLS: false,
-       *   requireTLS: false,
-       *   from: process.env.FROM_ADDRESS,
-       * },
-       */
+      smtp: {
+        provider: 'smtp',
+        host: process.env.MAIL_HOST,
+        port: process.env.MAIL_PORT,
+        username: process.env.MAIL_USER,
+        password: process.env.MAIL_PASSWORD,
+        ignoreTLS: false,
+        requireTLS: false,
+        from: process.env.FROM_ADDRESS,
+      },
 
       /**
        * mailgun: {

@@ -13,7 +13,7 @@ import {
 } from '@intentjs/core';
 import { JwtGuard } from '../guards';
 import { CreateBlogDto, PaginationDto } from 'app/validators';
-import { BlogService } from 'app/services/blog';
+import { BlogService } from 'app/services';
 import { BlogTransformer } from 'app/transformers';
 
 @Controller('blogs')
