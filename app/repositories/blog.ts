@@ -10,6 +10,8 @@ export class BlogDbRepository extends DatabaseRepository<BlogModel> {
   async search(inputs: PaginationDto): Promise<Pagination<BlogModel>> {
     const query = this.query();
 
+    query.withGraphFetched({ user: true });
+
     if (inputs.paginate === false) {
       return query.allPages<BlogModel>();
     }
